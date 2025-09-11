@@ -9,7 +9,11 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+        <td>
+          <% unless user == current_user %>
+            <%= image_tag user.get_profile_image, size:'100x100' %>
+          <% end %>
+        </td>
         <td><%= user.name %></td>
         <td><%= link_to 'Show', user %></td>
       </tr>
