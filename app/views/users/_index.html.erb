@@ -10,9 +10,7 @@
     <% users.each do |user| %>
       <tr>
         <td>
-          <% unless user == current_user %>
-            <%= image_tag user.get_profile_image, size:'100x100' %>
-          <% end %>
+          <%= image_tag user.get_profile_image, size:'100x100' %>
         </td>
         <td><%= user.name %></td>
         <td>フォロー数: <%= user.followings.count %></td>
