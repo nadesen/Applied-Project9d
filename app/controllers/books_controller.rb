@@ -8,7 +8,12 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    case params[:sort]
+    when "star"
+      @books = Book.order(rating: :desc)
+    else # デフォルトは新着順
+      @books = Book.order(created_at: :desc)
+    end
     @book = Book.new
     @user = current_user
   end
